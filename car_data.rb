@@ -1,11 +1,8 @@
-### This line assigns the mtcars.csv file to the variable all_cars
 all_cars = IO.readlines("mtcars.csv")
 
-### class Car creates the Car class so we can use it later
 class Car
-	attr_reader :name, :gas_mileage, :n_cylinders, :horsepower, :weight, :quarter_mile_time
+	attr_reader :name, :gas_mileage, :n_cylinders, :horsepower, :weight, :quarter_mile_time, :salesman_name
 
-### everytime we create a class we need to def initialize
 	def initialize(name, gas_mileage, n_cylinders, horsepower, weight, quarter_mile_time)
 		@name = name
 		@gas_mileage = gas_mileage
@@ -13,20 +10,19 @@ class Car
 		@horsepower = horsepower
 		@weight = weight
 		@quarter_mile_time = quarter_mile_time
+		@salesman_name = "the "
 	end	
-### def to_s calls self which is the car to the .name method and instead of seeing crazy characters we see the car name
+
 	def to_s
-		self.name
+		"#{salesman_name}"
 	end
-### This is asking if a car weighs over 3500 lbs. The 3.5 is a float which I assumed stood for thousands of lbs i.e. 3500
+
 	def land_yacht?
 		self.weight > 3.5
 	end
 
 	def salesman_name
-
-		@salesman_name = "The"
-		
+	
 		if self.horsepower > 200
 			puts "The Powerful #{self.name}"
 		else self.gas_mileage > 25
@@ -54,3 +50,16 @@ puts cars.select { |car| car.salesman_name }
 puts "But the fastest land yacht is: "
 puts cars.select { |car| car.land_yacht? }
 		 .max_by { |car| car.quarter_mile_time }
+
+
+puts "BEAST MODE!: "
+
+v4_cars = cars.select { |car| car.n_cylinders == 4 }.max_by { |car| car.gas_mileage }
+v6_cars = cars.select { |car| car.n_cylinders == 6 }.max_by { |car| car.gas_mileage }
+v8_cars = cars.select { |car| car.n_cylinders == 8 }.max_by { |car| car.gas_mileage }	
+
+puts "The best cars in their class are: "
+
+puts v4_cars
+puts v6_cars
+puts v8_cars
