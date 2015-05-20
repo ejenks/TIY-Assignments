@@ -11,6 +11,10 @@ class Car
 	def to_s
 		
 	end
+
+	def all
+		cars
+	end
 	
 	def compact?
 		"#{manufacturer} #{model}" if type == "Compact"
