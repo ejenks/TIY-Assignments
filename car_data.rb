@@ -1,4 +1,5 @@
 all_cars = IO.readlines("mtcars.csv")
+all_cars.shift
 
 class Car
 	attr_reader :name, :gas_mileage, :n_cylinders, :horsepower, :weight, :quarter_mile_time
