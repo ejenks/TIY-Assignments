@@ -1,7 +1,3 @@
-all_cars = IO.readlines("Cars93.csv")
-all_cars.shift
-
-
 class Car
 	attr_reader :manufacturer, :model, :type, :price
 
@@ -17,30 +13,32 @@ class Car
 	end
 	
 	def compact?
-		puts "#{manufacturer} #{model}" if type == "Compact"
+		"#{manufacturer} #{model}" if type == "Compact"
 	end
 
 	def sporty?
-		puts "#{manufacturer} #{model}" if type == "Sporty"
+		"#{manufacturer} #{model}" if type == "Sporty"
 	end
 
 	def large?
-		puts "#{manufacturer} #{model}" if type == "Large"
+		"#{manufacturer} #{model}" if type == "Large"
 	end
 
 	def mazda?
-		puts "Mazda #{model}" if manufacturer == "Mazda"
+		"Mazda #{model}" if manufacturer == "Mazda"
 	end
 
 	def pontiac?
-		puts "Pontiac #{model}" if manufacturer == "Pontiac"
+		"Pontiac #{model}" if manufacturer == "Pontiac"
 	end
 
 	def luxury?
-		puts "The expensive luxurious #{manufacturer} #{model}" if price > 30.0
+		"The expensive luxurious #{manufacturer} #{model}" if price > 30.0
 	end
 
-	def cars
+	def self.stuff
+		all_cars = IO.readlines("Cars93.csv")
+		all_cars.shift
 		cars = all_cars.map do |cars_string|
 			cars_string.gsub!('"', '')
 			car_array = cars_string.split(",")

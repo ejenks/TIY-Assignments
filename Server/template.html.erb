@@ -20,20 +20,17 @@
 			<th>Style</th>
 			<th>Price</th>
 		</tr>
-		<% cars.each do |car| %>
+		<% @cars.each do |car| %>
 			<tr>
 				<td><%= car.manufacturer %></td>
 				<td><%= car.model %></td>
 				<td><%= car.type %></td>
 				<td><%= car.price %></td>
 			</tr>
-		<% end %>	
-	</table>
+		<% end %>
 	
 	<p><a href="/">Home Page</a></p>
-	<footer>
-		<p><a href="/shutdown">Say Goodbye</a></p>
-	</footer>
+	<p><a href="/shutdown">Say Goodbye</a></p>
 </body>
 
 </html>
