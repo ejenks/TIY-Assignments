@@ -22,10 +22,15 @@ class Car
 	end
 
 	def salesman_name
-		@salesman_name = "the"
-		@salesman_name += "powerful" if horsepower > 200
-		@salesman_name += "fuel efficient" if gas_mileage > 25
-		@salesman_name += (" " + name)
+		"the #{powerful} #{fuel_efficient} #{name}"
+	end
+
+	def powerful
+		"powerful" if horsepower > 200
+	end
+
+	def fuel_efficient
+		"fuel_efficient" if gas_mileage > 25
 	end
 end
 
@@ -72,7 +77,7 @@ v4_cars = cars.select { |car| car.n_cylinders == 4 }.max_by { |car| car.gas_mile
 v6_cars = cars.select { |car| car.n_cylinders == 6 }.max_by { |car| car.gas_mileage }
 v8_cars = cars.select { |car| car.n_cylinders == 8 }.max_by { |car| car.gas_mileage }	
 
-puts "The best cars in their classes are: "
+puts "The best cars in their classes : "
 
 array = [ v4_cars, v6_cars, v8_cars ]
 puts array
