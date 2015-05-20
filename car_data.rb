@@ -1,7 +1,7 @@
 all_cars = IO.readlines("mtcars.csv")
 
 class Car
-	attr_reader :name, :gas_mileage, :n_cylinders, :horsepower, :weight, :quarter_mile_time, :salesman_name
+	attr_reader :name, :gas_mileage, :n_cylinders, :horsepower, :weight, :quarter_mile_time
 
 	def initialize(name, gas_mileage, n_cylinders, horsepower, weight, quarter_mile_time)
 		@name = name
@@ -10,24 +10,22 @@ class Car
 		@horsepower = horsepower
 		@weight = weight
 		@quarter_mile_time = quarter_mile_time
-		@salesman_name = "the "
+
 	end	
 
 	def to_s
-		"#{salesman_name}"
+		salesman_name
 	end
 
 	def land_yacht?
-		self.weight > 3.5
+		weight > 3.5
 	end
 
 	def salesman_name
-	
-		if self.horsepower > 200
-			puts "The Powerful #{self.name}"
-		else self.gas_mileage > 25
-			puts "The Fuel Efficient #{self.name}"
-		end
+		@salesman_name = "the"
+		@salesman_name += "powerful" if horsepower > 200
+		@salesman_name += "fuel efficient" if gas_mileage > 25
+		@salesman_name += (" " + name)
 	end
 end
 
@@ -41,25 +39,40 @@ cars = all_cars.map do |cars_string|
 			car_array[6].to_f, car_array[7].to_f)
 end
 
+puts "All the cars are: "
+puts cars
+
+puts ""
+
 puts "The car that has the best gas mileage is the: "
 puts cars.max_by { |car| car.gas_mileage }
+
+puts ""
+
 puts "The cars that are land yachts (over 3500 lbs) are: "
 puts cars.select { |car| car.land_yacht? }
+
+puts ""
+
 puts "Some cars are special: "
 puts cars.select { |car| car.salesman_name }
-puts "But the fastest land yacht is: "
-puts cars.select { |car| car.land_yacht? }
-		 .max_by { |car| car.quarter_mile_time }
 
+puts ""
 
 puts "BEAST MODE!: "
+puts ""
+
+puts "But the fastest land yacht is: "
+puts cars.select { |car| car.land_yacht? }
+		 .min_by { |car| car.quarter_mile_time }
+
+puts ""
 
 v4_cars = cars.select { |car| car.n_cylinders == 4 }.max_by { |car| car.gas_mileage }
 v6_cars = cars.select { |car| car.n_cylinders == 6 }.max_by { |car| car.gas_mileage }
 v8_cars = cars.select { |car| car.n_cylinders == 8 }.max_by { |car| car.gas_mileage }	
 
-puts "The best cars in their class are: "
+puts "The best cars in their classes are: "
 
-puts v4_cars
-puts v6_cars
-puts v8_cars
+array = [ v4_cars, v6_cars, v8_cars ]
+puts array
