@@ -8,7 +8,7 @@ server.mount_proc "/" do |request, response|
 	response.body = File.read "home.html"
 end
 
-@pages = ["compact", "sporty", "large", "mazda", "pontiac", "luxury"]
+@pages = ["compact", "sporty", "large", "mazda", "pontiac", "luxury", "all"]
 @pages.each do |p|
 	server.mount_proc "/#{p}" do |request, response|
 		@cars = Car.stuff

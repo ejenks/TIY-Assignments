@@ -12,7 +12,7 @@ class Car
 		
 	end
 
-	def all
+	def all?
 		cars
 	end
 	
@@ -29,15 +29,15 @@ class Car
 	end
 
 	def mazda?
-		"Mazda #{model}" if manufacturer == "Mazda"
+		"#{model}" if manufacturer == "Mazda"
 	end
 
 	def pontiac?
-		"Pontiac #{model}" if manufacturer == "Pontiac"
+		"#{model}" if manufacturer == "Pontiac"
 	end
 
 	def luxury?
-		"The expensive luxurious #{manufacturer} #{model}" if price > 30.0
+		"#{manufacturer} #{model}" if price > 30.0
 	end
 
 	def self.stuff

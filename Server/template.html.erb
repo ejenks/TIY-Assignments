@@ -3,16 +3,30 @@
 <html>
 
 <head>
-
 	<title>Cars! | 1993</title>
-
+	<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: inline;
+		}
+	</style>
 </head>
 
 
 
 <body>
 	<h1>Hey Come Check Out All the Best Cars From 1993!</h1>
-
+	<ul>
+		<li><a href="/sporty">Sports Cars</a></li>
+		<li><a href="/compact">Compact Cars</a></li>
+		<li><a href="/large">Large Cars</a></li>
+		<li><a href="/mazda">Mazdas</a></li>
+		<li><a href="/pontiac">Pontiacs</a></li>
+	</ul>
 	<table>
 		<tr>
 			<th>Make</th>
@@ -28,9 +42,9 @@
 				<td><%= car.price %></td>
 			</tr>
 		<% end %>
-	
-	<p><a href="/">Home Page</a></p>
-	<p><a href="/shutdown">Say Goodbye</a></p>
+	<footer>
+		<p><a href="/shutdown">Say Goodbye</a></p>
+	</footer>
 </body>
-
+	
 </html>
