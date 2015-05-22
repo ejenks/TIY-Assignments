@@ -1,28 +1,28 @@
 # The Iron Yelp
 
 You've had some practice with the fundamentals of the job:
-* [ ] Get data from somewhere
-* [ ] Parse it into a form Ruby can understand
+- [ ] Get data from somewhere
+- [ ] Parse it into a form Ruby can understand
   *  (While making sure _you_ understand it too)
-* [ ] Set up a server that interprets an incoming _request_ (like "/action") as a need for some of the data (like 'all the action movies') to be returned in _response_
-* [ ] Make HTML/ERB templates that can display different collections of data
+- [ ] Set up a server that interprets an incoming _request_ (like "/action") as a need for some of the data (like 'all the action movies') to be returned in _response_
+- [ ] Make HTML/ERB templates that can display different collections of data
 
 You've also had a little bit of practice writing classes and methods. Now, you get some more. 
 
 In this folder you'll find a file called `restaurants.json`, which has information about local eateries. Your job is to make a website that can show information about those restaurants. Specifically, write
-* [ ] All of the following in a folder called `the_iron_yelp`
-  * [ ] which you will add to your `TIY-Assignments` repository
-* [ ] A `home.html` home page for the site
-* [ ] A `restaurant.rb` file describing a `Restaurant` class that can be initialized with information about a particular restaurant
+- [ ] All of the following in a folder called `the_iron_yelp`
+  - [ ] which you will add to your `TIY-Assignments` repository
+- [ ] A `home.html` home page for the site
+- [ ] A `restaurant.rb` file describing a `Restaurant` class that can be initialized with information about a particular restaurant
   * _instance methods_ for `Restaurant` (see [Instance vs Class Methods](https://github.com/TheIronYard--Orlando/2015--SUMMER--ROR/blob/master/Notes/Week1/instance_vs_class_methods.md) in the notes folder. Seriously. Read that before you go further) to display information about any specific restaurant
   * You read [Instance vs Class Methods](https://github.com/TheIronYard--Orlando/2015--SUMMER--ROR/blob/master/Notes/Week1/instance_vs_class_methods.md), right?
   * _class methods_ on `Restaurant` (ditto) to get collections of restaurant objects
-* [ ] A `server.rb` file that can use the _class methods_ from `Restaurant` to get collections ready to be displayed on a `restaurants.html.erb` template
+- [ ] A `server.rb` file that can use the _class methods_ from `Restaurant` to get collections ready to be displayed on a `restaurants.html.erb` template
   * For example, when a person visits the site at `/restaurants`, the server should invoke the class method `Restaurant.all` to get all of the restaurants
   * Other ways to group the restaurants include filtering by cuisine (ie `/burgers` or `/vegetarian` etc), sorting by number of reviews or highest average review, cheap places (you define what counts as cheap)
   * You should also be able to select a single restaurant at a time, say the most popular one, and display lots of info on it in a `restaurant.html.erb` template
-* [ ] A `restaurants.html.erb` template to display information on one restaurant at a time
-* [ ] Also, copy the `restaurants.json` file from this folder and include it in yours
+- [ ] A `restaurants.html.erb` template to display information on one restaurant at a time
+- [ ] Also, copy the `restaurants.json` file from this folder and include it in yours
 
 ### The Data
 
@@ -38,12 +38,12 @@ Everything up to this point is part of the assignment requirements. For those lo
 
 ## Beast Mode
 
-* [ ] Add an _instance method_ to restaurant to display the hours it's open today (for whatever "today" is)
-* [ ] Add a little CSS to make the site look less awful
-* [ ] Make a page that lists places that are open right now
-* [ ] Display the average rating of each place
-* [ ] Use CSS to display the average rating as some number of stars
-* [ ] Figure out how to incorporate how far each restaurant is from The Iron Yard, and have a page to list the restaurants sorted by walking distance
+- [ ] Add an _instance method_ to restaurant to display the hours it's open today (for whatever "today" is)
+- [ ] Add a little CSS to make the site look less awful
+- [ ] Make a page that lists places that are open right now
+- [ ] Display the average rating of each place
+- [ ] Use CSS to display the average rating as some number of stars
+- [ ] Figure out how to incorporate how far each restaurant is from The Iron Yard, and have a page to list the restaurants sorted by walking distance
 
 ## Nightmare Mode
 
