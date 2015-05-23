@@ -1,16 +1,16 @@
 # The Iron Yelp
 
 You've had some practice with the fundamentals of the job:
-- [ ] Get data from somewhere
-- [ ] Parse it into a form Ruby can understand
+- [x] Get data from somewhere
+- [x] Parse it into a form Ruby can understand
   *  (While making sure _you_ understand it too)
-- [ ] Set up a server that interprets an incoming _request_ (like "/action") as a need for some of the data (like 'all the action movies') to be returned in _response_
-- [ ] Make HTML/ERB templates that can display different collections of data
+- [x] Set up a server that interprets an incoming _request_ (like "/action") as a need for some of the data (like 'all the action movies') to be returned in _response_
+- [x] Make HTML/ERB templates that can display different collections of data
 
 You've also had a little bit of practice writing classes and methods. Now, you get some more. 
 
 In this folder you'll find a file called `restaurants.json`, which has information about local eateries. Your job is to make a website that can show information about those restaurants. Specifically, write
-- [ ] All of the following in a folder called `the_iron_yelp`
+- [x] All of the following in a folder called `the_iron_yelp`
   - [ ] which you will add to your `TIY-Assignments` repository
 - [ ] A `home.html` home page for the site
 - [ ] A `restaurant.rb` file describing a `Restaurant` class that can be initialized with information about a particular restaurant
