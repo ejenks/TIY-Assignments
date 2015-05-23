@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Restaurant Page</title>
+  <title>The Iron Yelp | <%= @restaurant %></title>
 </head>
 <body>
-	<h1>Restaurant Page</h1>
+  <h1><%= @restaurant %></h1>
+  
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+    </tr>
+      
+    <tr>
+      <td><%= r.name %></a></td>
+      <td><%= r.address %></td>
+    </tr>
 
-	<table>
-		<th>Restaurant Name</th>
-		<th></th>
-	</table>
+  </table>
+  <p><a href="shutdown">Shutdown</a></p>
 </body>
 </html>
