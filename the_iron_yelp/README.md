@@ -11,9 +11,9 @@ You've also had a little bit of practice writing classes and methods. Now, you g
 
 In this folder you'll find a file called `restaurants.json`, which has information about local eateries. Your job is to make a website that can show information about those restaurants. Specifically, write
 - [x] All of the following in a folder called `the_iron_yelp`
-  - [ ] which you will add to your `TIY-Assignments` repository
-- [ ] A `home.html` home page for the site
-- [ ] A `restaurant.rb` file describing a `Restaurant` class that can be initialized with information about a particular restaurant
+  - [x] which you will add to your `TIY-Assignments` repository
+- [x] A `home.html` home page for the site
+- [x] A `restaurant.rb` file describing a `Restaurant` class that can be initialized with information about a particular restaurant
   * _instance methods_ for `Restaurant` (see [Instance vs Class Methods](https://github.com/TheIronYard--Orlando/2015--SUMMER--ROR/blob/master/Notes/Week1/instance_vs_class_methods.md) in the notes folder. Seriously. Read that before you go further) to display information about any specific restaurant
   * You read [Instance vs Class Methods](https://github.com/TheIronYard--Orlando/2015--SUMMER--ROR/blob/master/Notes/Week1/instance_vs_class_methods.md), right?
   * _class methods_ on `Restaurant` (ditto) to get collections of restaurant objects
