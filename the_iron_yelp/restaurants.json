@@ -106,6 +106,10 @@
       "Saturday": {
         "Open": "5:00pm",
         "Closed": "3:00am"
+      },
+       "Sunday": {
+        "Open": "CLOSED",
+        "Closed": "CLOSED"
       }
     },
     "price": [5,10],
@@ -141,6 +145,10 @@
       "Saturday": {
         "Open": "11:00am",
         "Closed": "8:00pm"
+      },
+      "Sunday": {
+        "Open": "10:00am",
+        "Closed": "5:00pm"
       }
     },
     "price": [5, 10],
@@ -178,8 +186,8 @@
         "Closed": "2:00pm"
       },
       "Sunday": {
-        "Open": "8:00am",
-        "Closed": "2:00pm"
+        "Open": "CLOSED",
+        "Closed": "CLOSED"
       }
     },
     "price": [5,10],
@@ -224,5 +232,5 @@
     "price": [5,10],
     "cuisines": ["Sports Bar", "Burgers"],
     "ratings": [5, 7, 8, 6, 6, 8, 9, 6, 7, 10]
-  },
+  }
 ]
