@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    h1 {
+      text-decoration: underline;
+      text-align: center;
+      background-color: #B50A05;
+      border: 2px solid black;
+      color: #F8E6E6;
+      font-size: 45px;
+      font: Arial, Helvetica, sans-serif;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    a:link {
+      color: blue;
+    }
+
+    a:visited {
+      color: blue;
+    }
+
+    body {
+      background-color: #f5f5f1;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    table {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid black;
+    }
+
+    th {
+      text-decoration: underline;
+    }
+
+    footer a {
+      text-align: left;
+      background-color: #B50A05;
+      border: 2px solid black;
+      color: #F8E6E6;
+    }
+
+    footer a:link {
+      color: #F8E6E6;
+    }
+
+    footer a:visited {
+      color: #F8E6E6;
+    }
+  </style>
+  <title>The Iron Yelp - Restaurants</title>
+</head>
+<body>
+  <h1>Restaurants In Your Area</h1>
+  <table>
+    <tr>
+      <th>Restaurant</th>
+      <th>Address</th>
+      <th>Cuisines</th>
+      <th>Rating</th>
+      <th>Open?</th>
+
+    </tr>
+    <% @restaurants.each do |r| %>
+    <tr>
+      <td><a href="<%= r.name %>"><%= r.name %></a></td>
+      <td><%= r.address %></td>
+      <td><%= r.cuisine_types %></td>
+      <td><%= r.average_review.round(1) %></td>
+      <td><%= r.open_now? %></td>
+    </tr>
+    <% end %>
+  </table>
+  <footer><p><a href="/shutdown">Shutdown</a></p></footer>
+</body>
+</html>
