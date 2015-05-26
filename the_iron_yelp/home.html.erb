@@ -26,9 +26,17 @@
 	
     ul li {
     	list-style-type: none;
+      margin: none;
     	padding-top: 2.5px;
     	padding-bottom: 2.5px;
     	font: Arial, Helvetica, sans-serif;
+      display: block;
+    }
+
+    .column {
+      float: right;
+      margin: 0 20px 0 0;
+      text-align: left; 
     }
 
    	h4 {
@@ -77,9 +85,7 @@
     	color: #F8E6E6;
     }
 
-    #right {
-    	text-align: right;
-    }
+  
 
   </style>
 	<title>The Iron Yelp | Neighborhood Eats</title>
@@ -94,21 +100,23 @@
 
 	<br>
 	<br>
-	
+	<div class="column">
 	<h3>Browse by Cuisine</h3>
 		<ul>
 	  		<% @cuisines.each do |c| %>
     			<li><a href = "<%=c%>" > <%= c %> Restaurants</a></li>
     		<% end %>
 		</ul>
+  </div>
 
-	<h3 id="right">Browse By Ratings</h3>	
-		<ul id="right">
+<div class="column">
+	<h3>Browse By Ratings</h3>	
+		<ul>
 			<li><a href="/highest">Highest Rated</a></li>
 			<li><a href="/numbers">Highest Number of Ratings</a></li>
 			<li><a href="/cheap">Cheapest Restaurants</a></li>
 		</ul>
-
+</div>
 	<footer><p><a href="/shutdown">Shutdown</a></p></footer>
 </body>
 </html>
