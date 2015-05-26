@@ -101,8 +101,8 @@ class Restaurant
     cuisines.include? cuisine_types
   end
 
-  def hours_day this_day
-    "#{hours[this_day]["Open"]} - #{hours[this_day]["Closed"]}"
+  def hours_day day
+    "#{hours[day]["Open"]} - #{hours[day]["Closed"]}"
   end
 
   def hours_today

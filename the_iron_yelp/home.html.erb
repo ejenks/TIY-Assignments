@@ -103,8 +103,8 @@
 	<div class="column">
 	<h3>Browse by Cuisine</h3>
 		<ul>
-	  		<% @cuisines.each do |c| %>
-    			<li><a href = "<%=c%>" > <%= c %> Restaurants</a></li>
+	  		<% @cuisines.each do |c| %>  
+    			<li><a href= "<%=c%>" > <%= c %> Restaurants</a></li>
     		<% end %>
 		</ul>
   </div>
@@ -120,3 +120,8 @@
 	<footer><p><a href="/shutdown">Shutdown</a></p></footer>
 </body>
 </html>
+
+<!-- where the @cuisines.each do is taking an instance of cuisines and pushing it through the each one through the |c| and then out putting the cuisine into a link -->
+
+<!-- Some changes to make #=> 
+    ### change |c| to |cuisine| for readability -->
