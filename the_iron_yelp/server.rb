@@ -20,7 +20,7 @@ server.mount_proc "/all" do |request, response|
 end
 
 ##### EACH INDIVIDUAL RESTAURANT PAGE
-@restaurants = Restaurant.all
+@restaurants = Restaurant.all ### class method
 @restaurants.each do |r|
 	server.mount_proc "/#{r.name}" do |request, response|
 		@restaurant = r
@@ -30,10 +30,10 @@ end
 end
 
 ##### SORTED BY CUISINES
-@cuisines = Restaurant.cuisine_types
+@cuisines = Restaurant.cuisine_types ### class method
 @cuisines.each do |cuisine|
 	server.mount_proc "/#{cuisine}" do |request, response|
-		@restaurants = Restaurant.cuisine(cuisine)
+		@restaurants = Restaurant.cuisine(cuisine) ### class method here you get all the cuisines by cuisine type
 		template = ERB.new (File.read "all.html.erb")
 		response.body = template.result
 	end
@@ -41,21 +41,21 @@ end
 
 ##### SORTED BY AVERAGE RATINGS
 server.mount_proc "/highest" do |request, response|
-	@restaurants = Restaurant.sorted_by_average_reviews
+	@restaurants = Restaurant.sorted_by_average_reviews #### class method sorting by average reviews
 	template = ERB.new(File.read "all.html.erb")
 	response.body = template.result
 end
 
 ##### SORTED BY NUMBER OF RATINGS
 server.mount_proc "/numbers" do |request, response|
-	@restaurants = Restaurant.sorted_by_number_reviews
+	@restaurants = Restaurant.sorted_by_number_reviews ### class method where we sort by the number of reviews
 	template = ERB.new(File.read "all.html.erb")
 	response.body = template.result
 end
 
 ##### SORTED BY CHEAP
 server.mount_proc "/cheap" do |request, response|
-	@restaurants = Restaurant.cheap
+	@restaurants = Restaurant.cheap ### class method here you get all the cheap restaurants when you call @restaurant
 	template = ERB.new(File.read "all.html.erb")
 	response.body = template.result
 end
