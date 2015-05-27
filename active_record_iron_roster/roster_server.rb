@@ -34,9 +34,13 @@ server.mount_proc "/staff" do |request, response|
 end
 
 server.mount_proc "/new_student_form" do |request, response|
-	@people = Person.create(request.query)
 	template = ERB.new(File.read "new_student_form.html.erb")
 	response.body = template.result
+end
+
+server.mount_proc "/create_student" do |request, response|
+	@new_student = Person.create(request.query)
+	response.body = "Thanks for registering #{@new_student.name}! Head to the home page"
 end
 
 server.mount_proc "/shutdown" do |request, response|

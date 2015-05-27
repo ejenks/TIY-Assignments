@@ -9,15 +9,17 @@
     
     <br>
     <br>
-    <form action="/new_student_form" method="POST">
+    <form action="/create_student" method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name">
+        <input id="name" type="text" name="name">
       <br>
         <label for="subject">Subject:</label>
-        <input type="text" id="subject">
+        <input id="subject" type="text" name="subject">
       <br>
         <label for="github_account">Github Account:</label>
-        <input type="text" id="github_account">
+        <input id="github_account" type="text" name="github_account">
+      <br>
+        <input type="radio" name="student" value="true">New Student?
       <br>
         <button type="submit">Submit Form:</button>
     </form>
