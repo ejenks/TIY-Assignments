@@ -5,10 +5,16 @@
 <head>
 	<title>Cars! | 1993</title>
 	<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: inline;
+		}
 	</style>
 </head>
-
-
 
 <body>
 	<h1>Hey Come Check Out All the Best Cars From 1993!</h1>
@@ -21,25 +27,9 @@
 		<li><a href="/domestic">Domestic Cars</a></li>
 		<li><a href="/foreign">Foreign Cars</a></li>
 	</ul>
-	<table>
-		<tr>
-			<th>Make</th>
-			<th>Model</th>
-			<th>Style</th>
-			<th>Price</th>
-			<th>MPG Highway</th>
-		</tr>
-		<% @car.each do |car| %>
-			<tr>
-				<td><%= car.make %></td>
-				<td><%= car.model %></td>
-				<td><%= car.category %></td>
-				<td><%= "$ #{car.min_price * 1000}"%></td>
-				<td><%= "#{car.mpg_highway} Miles Per Gallon" %></td>
-			</tr>
-		<% end %>
+
 	<footer>
-		<p><a href="/shutdown">Say Goodbye</a></p>
+		<a href="/shutdown">Say Goodbye</a>
 	</footer>
 </body>
 	
