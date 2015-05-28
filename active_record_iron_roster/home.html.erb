@@ -12,13 +12,13 @@
         <th>Github Account</th>
         <th>Student</th>
       </tr>
-      <tr>
       <% @people.each do |person| %>
-        <td><%= person.name %></td>
-        <td><%= person.subject %></td>
-        <td><a href="https://github.com/<%= person.github_account %>/"><%= person.github_account %></td>
-        <td><%= person.student %></td>
-      </tr>    
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.subject %></td>
+          <td><a href="https://github.com/<%= person.github_account %>/"><%= person.github_account %></td>
+          <td><%= person.student %></td>
+        </tr>    
       <% end %> 
     </table>
 

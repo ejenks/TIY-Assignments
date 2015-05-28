@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>People of The Iron Yard | <%= @people.to_s %></title>
+    <title>People of The Iron Yard | <%= @page_title %></title>
   </head>
   <body>
-    <h1>This Group is <%= @people.to_s %></h1>
+    <h1>This Group is <%= @page_title %></h1>
     <table>
       <tr>
         <th>Name</th>
@@ -12,13 +12,13 @@
         <th>Github Account</th>
         <th>Student</th>
       </tr>
-      <tr>
-      <% @people.each do |person| %>
-        <td><%= person.name %></td>
-        <td><%= person.subject %></td>
-        <td><a href="https://github.com/<%= person.github_account %>/"><%= person.github_account %></td>
-        <td><%= person.student %></td>
-      </tr>    
+      <% @people.each do |person| %>  
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.subject %></td>
+          <td><a href="https://github.com/<%= person.github_account %>/"><%= person.github_account %></td>
+          <td><%= person.student %></td>
+        </tr>    
       <% end %> 
     </table>
     <br>
