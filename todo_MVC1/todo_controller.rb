@@ -4,7 +4,7 @@ require './todo'
 server = WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: "./public")
 
 server.mount_proc "/todos" do |request, response|
-  # populate some instance variables in here
+  @todo = Todo.all
   template = ERB.new(File.read "index.html.erb")
   response.body = template.result
 end
@@ -12,7 +12,6 @@ end
 # there are several URLs that must be handled
 
 server.mount_proc "/create_todo" do |request, response|
-  # handle data coming in from the form
   response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
   # the above line saves you from needing to make a separate template to show a new todo by itself
   # in general, POST requests from forms should be redirected that way
@@ -36,6 +35,10 @@ end
 class TodoServlet < WEBrick::HTTPServlet::AbstractServlet
 
   def do_GET(request, response)
+    request.path =~ /todo\/(\d+)/
+    id = $1
+    @todo = Todo.find(id)
+    request.path =~ /todos\/(\d+)/
     # this method handles GET requests to your server like "/todo/4/edit" - 
     # really any GET request that has "/todo/" in it 
     # you will need to add some code so the template displays properly
@@ -45,6 +48,12 @@ class TodoServlet < WEBrick::HTTPServlet::AbstractServlet
   end
 
   def do_POST(request, response)
+    request.path =~ /todo\/(\d+)/
+    id = $1
+    @todo = Todo.find(id)
+    if request.path =~ /todo\/(\d+)\/create/
+      @new_todo = Todo.create()
+    end
     # this method handles any POST request that matches a pattern like "/todo/5/update" or "/todo/47/destroy" etc
     # note that there are two aspects of that pattern that change; you'll need to write code to handle 
     # requests to do several different kinds of things to your todo items
