@@ -13,14 +13,14 @@ end
 # there are several URLs that must be handled
 
 server.mount_proc "/create_todo" do |request, response|
-  @new_todo_item = Todo.create(request.query)
-  @new_todo_item.update(complete: false)
+  @todo_item = Todo.create(request.query)
+  @todo_item.update(complete: false)
   response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
 end
 
 server.mount_proc "/active" do |request, response|
   @todos = Todo.where(complete: false)
-    template = ERB.new(File.read "index.html.erb")
+  template = ERB.new(File.read "index.html.erb")
   response.body = template.result
 end
 
@@ -30,10 +30,9 @@ server.mount_proc "/completed" do |request, response|
   response.body = template.result
 end
 
-@toggle_all_on = false
+
 server.mount_proc "/toggle_all" do |request, response|
-  @toggle_all_on = !@toggle_all_on
-  Todo.update_all(complete: @toggle_all_on)
+  Todo.update_all(complete: Todo.uncompleted?)
   response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
 end
 
@@ -64,6 +63,8 @@ class TodoServlet < WEBrick::HTTPServlet::AbstractServlet
     # really any GET request that has "/todo/" in it 
     # you will need to add some code so the template displays properly
     # and lets you edit a single todo
+    @edit_todo = Todo.find(id)
+    request.path =~ /todo\/(\d+)\/edit/
     template = ERB.new(File.read "index.html.erb")
     response.body = template.result(binding) # binding is required here.
   end
