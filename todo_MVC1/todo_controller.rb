@@ -3,6 +3,7 @@ require './todo'
 
 server = WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: "./public")
 
+
 server.mount_proc "/todos" do |request, response|
   @todos = Todo.all
   template = ERB.new(File.read "index.html.erb")
@@ -29,8 +30,10 @@ server.mount_proc "/completed" do |request, response|
   response.body = template.result
 end
 
+@toggle_all_on = false
 server.mount_proc "/toggle_all" do |request, response|
-  Todo.update_all(complete: true)
+  @toggle_all_on = !@toggle_all_on
+  Todo.update_all(complete: @toggle_all_on)
   response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
 end
 
