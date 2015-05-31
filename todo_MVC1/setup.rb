@@ -14,4 +14,6 @@ ActiveRecord::Base.connection.create_table 'todos',
 ActiveRecord::Base.connection.create_table 'categories',
 	force: true do |table|
 		table.string :category
+		table.boolean :complete
+		table.boolean :edit, default: false
 	end	
