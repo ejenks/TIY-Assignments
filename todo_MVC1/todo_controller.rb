@@ -5,6 +5,7 @@ server = WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: "./public")
 
 
 server.mount_proc "/todos" do |request, response|
+  @filters = "todos"
   @todos = Todo.all
   template = ERB.new(File.read "index.html.erb")
   response.body = template.result
@@ -19,12 +20,14 @@ server.mount_proc "/create_todo" do |request, response|
 end
 
 server.mount_proc "/active" do |request, response|
+  @filters = "active"
   @todos = Todo.where(complete: false)
   template = ERB.new(File.read "index.html.erb")
   response.body = template.result
 end
 
 server.mount_proc "/completed" do |request, response|
+  @filters = "completed"
   @todos = Todo.where(complete: true)
   template = ERB.new(File.read "index.html.erb")
   response.body = template.result
@@ -63,23 +66,30 @@ class TodoServlet < WEBrick::HTTPServlet::AbstractServlet
     # really any GET request that has "/todo/" in it 
     # you will need to add some code so the template displays properly
     # and lets you edit a single todo
-    @edit_todo = Todo.find(id)
-    request.path =~ /todo\/(\d+)\/edit/
+    if request.path =~ /todo\/(\d+)\/edit/
+      id = $1
+      @todo = Todo.find(id).toggle!(:edit)
+    end
+    @todos = Todo.all
     template = ERB.new(File.read "index.html.erb")
     response.body = template.result(binding) # binding is required here.
   end
 
   def do_POST(request, response)
-    request.path =~ /todo\/(\d+)/
-    id = $1
-    @todo = Todo.find(id)
     if request.path =~ /todo\/(\d+)\/destroy/
       @todo.destroy
       response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
     elsif request.path =~ /todo\/(\d+)\/toggle_complete/
       @todo.toggle!(:complete)
       response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
-    end
+    end  
+    request.path =~ /todo\/(\d+)\/update/
+      id = $1
+      @todo = Todo.find(id)
+      @updated = request.query["todo_item"]
+      @todo.update(todo_item: @updated, edit: false)
+      response.set_redirect WEBrick::HTTPStatus::MovedPermanently, "/todos"
+    
     # this method handles any POST request that matches a pattern like "/todo/5/update" or "/todo/47/destroy" etc
     # note that there are two aspects of that pattern that change; you'll need to write code to handle 
     # requests to do several different kinds of things to your todo items

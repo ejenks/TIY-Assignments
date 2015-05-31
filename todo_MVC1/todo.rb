@@ -3,6 +3,7 @@ require 'active_record'
 class Todo < ActiveRecord::Base
 	establish_connection adapter: 'sqlite3',
 						 database: 'todomvc.db'
+	
 	validates_presence_of :todo_item					 
 
 	def self.uncompleted?
@@ -13,5 +14,11 @@ class Todo < ActiveRecord::Base
 		Todo.where(complete: false).size
 	end
 
+	def self.complete?
+		Todo.where(complete: true).any?
+	end
+
 end
+
+
 

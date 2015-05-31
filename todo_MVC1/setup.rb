@@ -8,4 +8,10 @@ ActiveRecord::Base.connection.create_table 'todos',
 	force: true do |table|
 		table.string :todo_item
 		table.boolean :complete
+		table.boolean :edit, default: false
 	end
+
+ActiveRecord::Base.connection.create_table 'categories',
+	force: true do |table|
+		table.string :category
+	end	

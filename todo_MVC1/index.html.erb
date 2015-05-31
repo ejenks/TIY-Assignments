@@ -6,68 +6,86 @@
     <title>TodoMVC</title>
     <link rel="stylesheet" href="/index.css">
   </head>
+
   <body>
     <section id="todoapp">
       <header id="header">
         <h1>todos</h1>
         <form action="/create_todo" method="POST">
-          <input id="new-todo" type="text" name="todo_item" autofocus>
+          <input id="new-todo" type="text" placeholder="What Needs To Be Done?" name="todo_item" autofocus>
         </form>
       </header>
+
       <!-- This section should be hidden by default and shown when there are todos to display -->
       <section id="main">
         <form action="/toggle_all" method="POST">
-          <input id="toggle-all" type="checkbox" <%= "checked" if Todo.uncompleted? %>>
+          <input id="toggle-all" type="checkbox" <%= "checked" if !Todo.uncompleted? && Todo.items_left >= 0 %>>
           <label for="toggle-all">Mark all as complete</label>
         </form>
-        <ul id="todo-list">
         <% @todos.each do |todo_item| %>
-          <li>
-            <div class="view">
-              <form action="/todo/<%= todo_item.id %>/toggle_complete" method="POST">
-               <input class="toggle" type="checkbox"  <%= "checked" if todo_item.complete %> >
-              </form>
-              <a><%= todo_item.todo_item %></a>
-              <form action="/todo/<%= todo_item.id %>/destroy" method="POST">
-                <button class="destroy"></button>
-              </form>
-            </div>
-            <!-- The following form should appear only if this list item is being edited -->
-            <form>
-              <input class="edit" value="">
-            </form>
-            <% end %>
-          </li>
+          <ul id="todo-list">
+          <% if !todo_item.edit %> 
+            <li>
+              <div class="view">
+                <form action="/todo/<%= todo_item.id %>/toggle_complete" method="POST">
+                 <input class="toggle" type="checkbox"  <%= "checked" if todo_item.complete? %> >
+                </form>
+                <a href="/todo/<%= todo_item.id %>/edit"><%= "#{todo_item.todo_item}" %></a>
+                  <form action="/todo/<%= todo_item.id %>/destroy" method="POST">
+                    <button class="destroy"></button>
+                </form>
+            </li>
+          <% else %>
+          <!-- The following form should appear only if this list item is being edited -->
+             <li class="editing">
+                <form action= "todo/<%= todo_item.id %>/update" method="POST">
+                    <input class="edit" name="todo_item" value= <%= todo_item.todo_item %>>
+                </form>
+              </li>
+          <% end %>
         </ul>
+       <% end %> 
+
       </section>
+      
       <% if Todo.all.size > 0 %>
       <footer id="footer">
         <!-- This should be `0 items left` by default -->
-        <span id="todo-count"><%= Todo.items_left %><strong></strong> items left</span>
+        <% if Todo.items_left == 1 %>
+          <span id="todo-count"><strong><%= Todo.items_left %></strong> item left</span>
+        <% else %>
+          <span id="todo-count"><strong><%= Todo.items_left %></strong> items left</span>
+        <% end %>
+        
         <ul id="filters">
           <li>
-            <a class="selected" href="/todos">All</a>
+            <a <%= 'class= selected' if @filter == "todos" %> href="/todos">All</a>
           </li>
           <li>
-            <a href="/active">Active</a>
+            <a <%= 'class= selected' if @filter == "active" %> href="/active">Active</a>
           </li>
           <li>
-            <a href="/completed">Completed</a>
+            <a <%= 'class= selected' if @filter == "completed" %> href="/completed">Completed</a>
           </li>
         </ul>
         <!-- Hidden if no completed items are left ↓ -->
-        <form action="/destroy_all_complete" method="POST">
-          <button id="clear-completed">Clear completed</button>
-        </form>
+        
+        <% if Todo.complete? %>
+          <form action="/destroy_all_complete" method="POST">
+            <button id="clear-completed">Clear completed</button>
+          </form>
+        <% end %>  
       </footer>
       <% end %>
     </section>
+
     <footer id="info">
-      <p>Double-click to edit a todo</p>
+      <p>Single-click to edit a todo</p>
       <!-- Change this out with your name and url ↓ -->
       <p>Created by <a href="https://github.com/ejenks">Erik Jenks</a></p>
       <p>Part of <a href="http://theironyard.com">Ruby On Rails-The Iron Yard-Orlando</a></p>
     </footer>
+
     <!-- Scripts here. Don't remove ↓ -->
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="/app.js"></script>
