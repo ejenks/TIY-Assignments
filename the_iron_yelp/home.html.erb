@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    h1 {
+      text-decoration: underline;
+      text-align: center;
+      background-color: #B50A05;
+      border: 2px solid black;
+      color: #F8E6E6;
+      font-size: 45px; 
+      font: Arial, Helvetica, sans-serif;
+    }
+	
+	#area {
+		text-align: center;
+		text-decoration: underline;
+	}
+
+    h3 {
+    	text-decoration: underline;
+    	font: Arial, Helvetica, sans-serif;
+    	color: #C41200;
+    }
+
+	
+    ul li {
+    	list-style-type: none;
+      margin: none;
+    	padding-top: 2.5px;
+    	padding-bottom: 2.5px;
+    	font: Arial, Helvetica, sans-serif;
+      display: block;
+    }
+
+    .column {
+      float: right;
+      margin: 0 20px 0 0;
+      text-align: left; 
+    }
+
+   	h4 {
+   		text-align: center;
+   		font-size: 30px;
+   		font: Arial, Helvetica, sans-serif;
+   		color: #C41200;
+   	}
+
+    a {
+      text-decoration: none;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    a:link {
+      color: blue;
+    }
+
+    a:visited {
+      color: blue;
+    }
+
+    body {
+      background-color: #f5f5f1;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    th {
+      text-decoration: underline;
+    }
+
+    footer a {
+      text-align: left;
+      background-color: #B50A05;
+      border: 1px solid black;
+      color: #F8E6E6;
+      font: Arial, Helvetica, sans-serif;
+
+    }
+
+    footer a:link {
+		color: #F8E6E6;
+    }
+
+    footer a:visited {
+    	color: #F8E6E6;
+    }
+
+  
+
+  </style>
+	<title>The Iron Yelp | Neighborhood Eats</title>
+</head>
+<body>
+	<h1>The Iron Yelp</h1>
+	<h4>Your Neighborhood Eats</h4>
+
+
+	<h2 id="area"><a href="/all">>All Our Area Restaurants<</a></h3>
+	
+
+	<br>
+	<br>
+	<div class="column">
+	<h3>Browse by Cuisine</h3>
+		<ul>
+	  		<% @cuisines.each do |c| %>  
+    			<li><a href= "<%=c%>" > <%= c %> Restaurants</a></li>
+    		<% end %>
+		</ul>
+  </div>
+
+<div class="column">
+	<h3>Browse By Ratings</h3>	
+		<ul>
+			<li><a href="/highest">Highest Rated</a></li>
+			<li><a href="/numbers">Highest Number of Ratings</a></li>
+			<li><a href="/cheap">Cheapest Restaurants</a></li>
+		</ul>
+</div>
+	<footer><p><a href="/shutdown">Shutdown</a></p></footer>
+</body>
+</html>
+
+<!-- where the @cuisines.each do is taking an instance of cuisines and pushing it through the each one through the |c| and then out putting the cuisine into a link -->
+
+<!-- Some changes to make #=> 
+    ### change |c| to |cuisine| for readability -->

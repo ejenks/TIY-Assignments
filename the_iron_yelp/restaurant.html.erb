@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>The Iron Yelp | <%= @found_restaurant %></title>
+  <style>
+    h1 {
+      text-decoration: underline;
+      text-align: center;
+      background-color: #B50A05;
+      border: 2px solid black;
+      color: #F8E6E6;
+      font-size: 45px;
+      font: Arial, Helvetica, sans-serif;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    a:link {
+      color: blue;
+    }
+
+    a:visited {
+      color: blue;
+    }
+
+    ul li {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    body {
+      background-color: #f5f5f1;
+      text-align: center;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    table {
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    th {
+      text-decoration: underline;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    td {
+      text-align: center;
+      font-size: 18px;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    footer a {
+      text-align: left;
+      background-color: #B50A05;
+      border: 2px solid black;
+      color: #F8E6E6;
+      font: Arial, Helvetica, sans-serif;
+    }
+
+    footer a:link {
+      color: #F8E6E6;
+    }
+
+    footer a:visited {
+      color: #F8E6E6;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= @restaurant %></h1>
+  
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Food Type</th>
+      <th>Price Range</th>
+    </tr>
+    <br>  
+    <tr>
+      <td><%= @restaurant.name %></td>
+      <td><%= @restaurant.address %></td>
+      <td><%= @restaurant.cuisine_types %></td>
+      <td><%= @restaurant.price_range %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <th>Average Reviews</th>
+      <th>Website</th>
+    </tr>
+    <tr>
+    <td><%= @restaurant.average_review.round(1) %></td> 
+    <td><a href="http://<%= @restaurant.website %>"></a> <%= @restaurant.website %></td>
+    </tr>
+  </table>
+  <table>
+  <th>Hours</th>
+     <td><ul>
+      <li>Monday: <%= @restaurant.hours_day "Monday" %></li>
+      <li>Tuesday: <%= @restaurant.hours_day "Tuesday" %></li>
+      <li>Wednesday: <%= @restaurant.hours_day "Wednesday" %></li>
+      <li>Thursday: <%= @restaurant.hours_day "Thursday" %></li>
+      <li>Friday: <%= @restaurant.hours_day "Friday" %></li>
+      <li>Saturday: <%= @restaurant.hours_day "Saturday" %></li>
+      <li>Sunday: <%= @restaurant.hours_day "Sunday" %></li>
+      </td>
+    </ul>
+
+   
+  </table>
+  <footer><p><a href="shutdown">Shutdown</a></p></footer>
+</body>
+</html>
