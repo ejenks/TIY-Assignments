@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>People of The Iron Yard | <%= @page_title %></title>
+  </head>
+  <body>
+    <h1>This Group is <%= @page_title %></h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Github Account</th>
+        <th>Student</th>
+      </tr>
+      <% @people.each do |person| %>  
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.subject %></td>
+          <td><a href="https://github.com/<%= person.github_account %>/"><%= person.github_account %></td>
+          <td><%= person.student %></td>
+        </tr>    
+      <% end %> 
+    </table>
+    <br>
+    <br>
+
+  <a href="/rails">Ruby On Rails Students</a>
+  <a href="/fee">Front End Engineering Students</a>
+  <a href="/students">All Students</a>
+  <a href="/staff">All The Staff</a>
+  <br>
+  <a href="/">Home</a>
+  </body>
+</html>

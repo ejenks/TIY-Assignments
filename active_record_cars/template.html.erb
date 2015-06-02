@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Cars! | 1993</title>
+	<style>
+	</style>
+</head>
+
+
+
+<body>
+	<h1>Hey Come Check Out All the Best Cars From 1993!</h1>
+	<ul>
+		<li><a href="/ford">Fords</a></li>
+		<li><a href="/mazda">Mazdas</a></li>
+		<li><a href="/sporty">Sport Cars</a></li>
+		<li><a href="/luxury">Luxury Cars</a></li>
+		<li><a href="/fuel_efficient">Fuel Efficient Cars</a></li>
+		<li><a href="/domestic">Domestic Cars</a></li>
+		<li><a href="/foreign">Foreign Cars</a></li>
+	</ul>
+	<table>
+		<tr>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Style</th>
+			<th>Price</th>
+			<th>MPG Highway</th>
+		</tr>
+		<% @car.each do |car| %>
+			<tr>
+				<td><%= car.make %></td>
+				<td><%= car.model %></td>
+				<td><%= car.category %></td>
+				<td><%= "$ #{car.min_price * 1000}"%></td>
+				<td><%= "#{car.mpg_highway} Miles Per Gallon" %></td>
+			</tr>
+		<% end %>
+	<footer>
+		<p><a href="/shutdown">Say Goodbye</a></p>
+	</footer>
+</body>
+	
+</html>

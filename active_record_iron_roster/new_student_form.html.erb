@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>People of The Iron Yard</title>
+  </head>
+  <body>
+    <h1>New Student Registration</h1>
+    <p>Sign up with all of you information down below. We won't bother you! Too much.</p>
+    
+    <br>
+    <br>
+    <form action="/create_student" method="POST">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name">
+      <br>
+        <label for="subject">Subject:</label>
+        <input id="subject" type="text" name="subject">
+      <br>
+        <label for="github_account">Github Account:</label>
+        <input id="github_account" type="text" name="github_account">
+      <br>
+        <input type="radio" name="student" value="true">New Student?
+      <br>
+        <button type="submit">Submit Form:</button>
+    </form>
+    
+
+  <a href="/rails">Ruby On Rails Students</a>
+  <a href="/fee">Front End Engineering Students</a>
+  <a href="/students">All Students</a>
+  <a href="/staff">All The Staff</a>
+  <br>
+  <a href="/">Home</a>
+  </body>
+</html>
