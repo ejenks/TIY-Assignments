@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   get '/todo/new' => 'todo#new'
   post '/todo' => 'todo#create'
+  post 'toggle_all' => 'todo#toggle_all'
   get '/todo/:id/edit' => 'todo#edit'
   patch '/todo/:id' => 'todo#update'
+  post 'todo/:id/toggle' => 'todo#toggle'
   get '/todo/active' => 'todo#active'
   get '/todo/completed' => 'todo#completed'
   delete '/todo/:id' => 'todo#destroy'
