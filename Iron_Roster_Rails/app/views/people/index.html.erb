@@ -1,0 +1,19 @@
+<h1>The Iron Roster</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Subject</th>
+		<th>Github Account</th>
+		<th>Edit</th>
+	</tr>
+	<% @people.each do |person| %>
+		<tr>
+			<td><%= link_to person.name, person %></td>
+			<td><%= person.subject %></td>
+			<td><%= person.github_account %></td>
+			<td><%= link_to "Edit", edit_person_path %></td>
+		</tr>
+	<% end %>
+
+	<%= link_to "New Student", new_person_path %>
+</table>

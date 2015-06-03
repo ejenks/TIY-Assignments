@@ -1,0 +1,7 @@
+<h1>Edit Personal Information</h1>
+<%= simple_form_for @person do |f| %>
+  <%= f.input :name, label: 'Your Name' %>
+  <%= f.input :subject, label: 'Subject' %>
+  <%= f.input :github_account, label: 'github_account' %>
+  <%= f.button :submit %>
+<% end %>
