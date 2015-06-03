@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   post '/todo' => 'todo#create'
   get '/todo/:id/edit' => 'todo#edit'
   patch '/todo/:id' => 'todo#update'
-  get '/todo/active' => 'todo#active?'
-  get '/todo/completed' => 'todo#completed?'
+  get '/todo/active' => 'todo#active'
+  get '/todo/completed' => 'todo#completed'
   delete '/todo/:id' => 'todo#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
