@@ -1,3 +1,4 @@
 class Person < ActiveRecord::Base
-	validates_presence_of :name, :subject, :github_account
+	belongs_to :subject
+	validates_presence_of :name, :subject_id, :github_account
 end
