@@ -1,0 +1,16 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+<br>
+<br>
+<h4>All Comments</h4>
+<% @post.comments.each do |comment| %>
+	<h5><%= comment.comment_author %></h5>
+	<p><%= comment.comment %></p>
+<% end %>
+<h4>Post A New Comment</h4>
+<%= simple_form_for ([@post, @post.comments.build]) do |f| %>
+	<p><%= f.input :comment_author, label: "Author" %></p>
+	<p><%= f.input :comment, label: "Your Comment Here:" %></p>
+	<p><%= f.button :submit %></p>
+<% end %>

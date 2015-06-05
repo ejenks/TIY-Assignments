@@ -1,0 +1,12 @@
+<h1>New Post</h1>
+
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title, label: 'Post Title' %>
+  <%= f.input :body, label: 'Body' %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<br>
+<br>
+<%= link_to "Cancel", root_path %>
