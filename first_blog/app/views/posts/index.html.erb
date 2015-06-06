@@ -1,22 +1,17 @@
+<div class="container-fluid">
 <h1>All Posts</h1>
 
-<table>
 	<% @posts.each do |post| %>
-		<tr>
-			<th>Title</th>
-			<th>Edit</th>
-			<th>Delete Post</th>
-		</tr>
-		<tr>
-			<td><%= link_to post.title, post %></td>
-			<td><%= link_to "Edit Post", edit_post_path(post) %></td>
-			<td><%= link_to "Delete Post", post_path(post),
-										   method: :delete,
-										   data: { confirm: "Are You Sure You Want To Delete This Post?" } %></td>
-		</tr>
+		<h2>
+			<%= link_to post.title, post %>
+		</h2>
+		<p>
+			<%= post.created_at.strftime("%B, %d, %Y") %>
+		</p>
 	<% end %>		
-</table>
+
+<br>
+<%= will_paginate @posts %>
 <br>
 <br>
-<br>
-<%= link_to "New Post", new_post_path %>
+</div>
