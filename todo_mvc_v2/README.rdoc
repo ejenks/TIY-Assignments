@@ -1,0 +1,12 @@
+== README
+
+Planning for moving from weekend to here:
+
+* todo.rb => app/models
+* todo_controller.rb => app/controllers
+  * except for the URLs, which go to config/routes.rb
+* setup.rb => done by a migration
+* index.html.erb => app/views/todos/index.html.erb
+* app.js and index.css => ??
+
+* I can do both the todo.rb and the db migration at the same time
