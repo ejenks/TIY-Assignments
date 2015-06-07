@@ -16,4 +16,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	font-family: 'Cabin', sans-serif;
+	height: 100%;
+  background: -webkit-linear-gradient(left, #1D976C 10%, #93F9B9 90%);
+  background: -o-linear-gradient(left, #1D976C 10%, #93F9B9 90%);
+  background: linear-gradient(to right, #1D976C 10%, #93F9B9 90%);
+  font-family: 'Lato', sans-serif;
+}
 
+.navbar-brand {
+	color: blue;
+}
+.All {
+	font-size: 60px;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.title {
+	padding-top: 10px;
+	color: white;
+	
+}
+
+.comment {
+	padding-top: 5px;
+}
+
+.body {
+	font-size: 20px;
+}
+
+.jumbotron {
+	text-align: center;
+}

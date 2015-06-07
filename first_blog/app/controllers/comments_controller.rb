@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
 	def edit
 	  @post = Post.find(params[:id])
-	  @comment = @post.comments.find(params[:id])
+	  # @comment = @post.comments.find(params[:post_id])
 	end
 
 	def update
