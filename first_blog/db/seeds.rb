@@ -10,8 +10,8 @@ require 'faker'
 include Faker
 
 100.times do
-	post = Post.create( :author => "#{Name.name}",
+	Post.create( :author => Name.name,
 						:title => Lorem.words(5).join(","),
 						:body => Lorem.paragraph(3, false, 4))
-	
+
 end
