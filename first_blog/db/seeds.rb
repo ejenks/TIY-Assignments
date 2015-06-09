@@ -11,7 +11,7 @@ include Faker
 
 100.times do
 	Post.create( :author => Name.name,
-						:title => Lorem.words(5).join(","),
-						:body => Lorem.paragraph(3, false, 4))
+							 :title => Lorem.words(5).join(","),
+						   :body => Lorem.paragraph(3, false, 4))
 
 end
