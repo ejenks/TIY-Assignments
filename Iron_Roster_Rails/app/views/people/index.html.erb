@@ -1,0 +1,22 @@
+<h1>The Iron Roster</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Subject</th>
+		<th>Github Account</th>
+		<th>Edit</th>
+		<th>Delete?</th>
+	</tr>
+	<% @people.each do |person| %>
+		<tr>
+			<td><%= link_to person.name, person %></td>
+			<td><%= person.subject %></td>
+			<td><%= person.github_account %></td>
+			<td><%= link_to "Edit", edit_person_path(person)  %></td>
+			<td><%= link_to "Delete Student?", person_path(person), 
+											   method: :delete,
+											   data: { confirm: "Are You Sure?" } %></td>
+		</tr>
+	<% end %>
+
+</table>

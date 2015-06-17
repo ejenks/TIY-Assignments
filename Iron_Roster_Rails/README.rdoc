@@ -1,0 +1,14 @@
+== README
+
+Todo List
+
+[ ] Model Data
+  [ ] name:string
+  [ ] subject:string
+  [ ] github account:string
+
+[ ] Generate Controller
+  [ ] index
+  [ ] create
+  [ ] edit
+  [ ] delete
