@@ -1,0 +1,25 @@
+<div class="container-fluid">
+<h1 class="All">All Posts</h1>
+
+	<% @posts.each do |post| %>
+		<h2 class="title">
+			<%= link_to post.title, post %>
+		</h2>
+		<h5>
+			<strong><%= post.author %></strong>
+			<p> <%= post.created_at.strftime("%B, %d, %Y") %></p>
+		</h5>
+		
+		<p class="body">
+			<%= post.body %>
+		</p>
+		<p class="comment">
+			Comments: <%= post.comments.count %>
+		</p>
+	<% end %>		
+
+<br>
+<%= will_paginate @posts %>
+<br>
+<br>
+</div>

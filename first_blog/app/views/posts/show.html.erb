@@ -1,0 +1,44 @@
+<div class="container-fluid">
+	<h1><%= @post.title %></h1>
+	<h5><strong>Authored By: </strong><%= @post.author %></h5>
+	<p><%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %> <%= link_to "Delete Post", post_path(@post),
+																			method: :delete,
+																			data: { confirm: "Are you sure?"}, class: "btn btn-danger" %> </p>
+	<p><%= @post.body %></p>
+
+
+	<br>
+
+	<h4>All Comments</h4>
+	<% @post.comments.each do |c| %>
+		<h5><%= c.comment_author %></h5>
+		<p><%= c.comment %></p>
+		<p><%=  link_to "Edit comment", edit_post_comment_path(c.post, c), class: "btn btn-primary" %>
+		<%= link_to "Delete Comment?", post_comment_path(c.post, c),
+										  method: :delete,
+										  data: { confirm: "Are You Sure?" }, class: "btn btn-danger" %></p>
+	<% end %>
+	<br>
+	<br>
+	<br>
+
+	<h4>Post A New Comment</h4>
+
+	<%= form_for ([@post, Comment.new]) do |f| %>
+		<div class="form">
+			<div class="form-group">
+				<%= f.label :comment_author %>
+				<%= f.text_field :comment_author, class: "form-control" %> <br>
+			</div>
+			<div class="form-group">
+				<%= f.label :comment %>
+				<%= f.text_area :comment, class: "form-control" %> <br>
+			</div>
+			<div class="form-group">
+				<%= f.submit "Submit Comment", class: "btn btn-success" %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+ 
