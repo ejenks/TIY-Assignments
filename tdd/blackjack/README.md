@@ -4,6 +4,7 @@
 * -[ ] - Two Players
   * -[ ] - Dealer
   * -[ ] - Player
+    * Player as a Struct?
 * -[ ] - Rules
   * -[ ] - Card Values
     * -[ ] - 1 deck of 52 cards
@@ -33,3 +34,24 @@
       * -[ ] - Dealer must hit if <= 16
       * -[ ] - Otherwise Same Rules as player
     * -[ ] - In the case of a tie, result is a push (tie)
+
+# Data Modeling for TDD
+## What Tests can we write?
+
+* - Existence Tests
+  * - Game
+  * - Card
+  * - Deck
+* - Attributes and Initialization Tests
+  * - Game
+    * - Game is initialized with a new Deck
+    * - Game is initialized with a Player having two cards
+      * - Player has a hand of Cards
+    * - Game has the rules attributes
+  * - Card
+    * - Card initialized with a suit and value
+    * - Card class should state what all cards are
+  * - Deck
+    * - Deck is initialized with 52 unique cards
+    * - Deck can be shuffled
+    * - Deck can remove a card after dealt
