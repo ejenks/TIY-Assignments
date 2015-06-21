@@ -8,8 +8,8 @@
 * -[ ] - Rules
   * -[ ] - Card Values
     * -[ ] - 1 deck of 52 cards
-    * -[ ] - Cards are equal to number value (2, 3, 4, 5, 6, 7, 8, 9, 10)
-    * -[ ] - Face cards are valued at 10 ( jack, queen, king )
+    * -[x] - Cards are equal to number value (2, 3, 4, 5, 6, 7, 8, 9, 10)
+    * -[x] - Face cards are valued at 10 ( jack, queen, king )
     * -[ ] - Ace can be an 11 or 1
   * -[ ] - Player vs. Dealer
     * -[ ] - Closest to 21 wins
@@ -20,9 +20,9 @@
 
 ## Relationships
 * -[ ] - Cards and Deck
-  * -[ ] - 52 Cards in a deck
-  * -[ ] - 4 Suits ("Spade", "Clubs", "Hearts", "Diamonds")
-    * -[ ] - 13 Cards per suit ("Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King")
+  * -[x] - 52 Cards in a deck
+  * -[x] - 4 Suits ("Spade", "Clubs", "Hearts", "Diamonds")
+    * -[x] - 13 Cards per suit ("Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King")
 * -[ ] - Players and Cards
   * -[ ] - Deal
     * -[ ] - Each player starts with two cards
