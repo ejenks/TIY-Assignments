@@ -19,13 +19,13 @@ class Card
     end
   end
 
-  def self.all
+  def all
     nested_cards = [:Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10 , :Jack, :Queen, :King].map do |value|
                     ["Spades", "Clubs", "Hearts", "Diamonds"].map do |suit|
                       Card.new(value, suit)
       end
     end
-    nested_cards.flatten 
+    nested_cards.flatten
   end
 
   def to_s

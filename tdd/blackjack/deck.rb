@@ -37,12 +37,12 @@ class Card
   end
 
   def self.all
-    nested_cards = [:Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10 , :Jack, :Queen, :King].map do |value|
+    all_cards = [:Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10 , :Jack, :Queen, :King].map do |value|
                     ["Spades", "Clubs", "Hearts", "Diamonds"].map do |suit|
                       Card.new(value, suit)
       end
     end
-    nested_cards.flatten
+    all_cards.flatten
   end
 
   def to_s
@@ -75,8 +75,8 @@ class Player
     v
   end
 
-  def hit(card)
-    @cards << card
+  def hit(card_n)
+    @cards << card_n
   end
 
   def to_s

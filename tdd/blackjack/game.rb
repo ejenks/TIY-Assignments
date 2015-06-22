@@ -1,6 +1,5 @@
-require './player'
 require './deck'
-require './card'
+
 
 class Game
 
@@ -24,10 +23,10 @@ class Game
       case
       when hit_or_stand == "s"
         stand
-        winner?
+        break if winner?
       when hit_or_stand == "h"
         hit!
-        winner?
+        break if winner?
       end
     end
   end
@@ -35,12 +34,11 @@ class Game
   def hit!
     @players_hand.hit(@deck.deal)
     print_updated_value
-    @rotate
   end
 
   def stand
-    print_updated_value
     dealers_turn(@dealers_hand)
+    print_updated_value
   end
 
   def dealers_turn(dealers_hand)
@@ -91,7 +89,6 @@ class Game
       @winner = "You"
       print "Dealer Busts... You Win"
     end
-    @winner
   end
 
   # def game_loop

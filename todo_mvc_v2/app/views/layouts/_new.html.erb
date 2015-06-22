@@ -1,0 +1,8 @@
+<form method="POST" action="create_todo">
+  <input id="new-todo" placeholder="What needs to be done?" name="todo[todo_item]" autofocus>
+</form>
+
+<%= form_for @todo do |f| %>
+  <%= f.text_field :field_1%>
+
+<% end %>

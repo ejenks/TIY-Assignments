@@ -13,7 +13,7 @@ describe Card do
   end
 
   it "should have a value of 10 for face cards" do
-    face_cards = ["King", "Queen", "Jack"]
+    face_cards = [:King, :Queen, :Jack]
     face_cards.each do |face|
       card = Card.new("Spades", face)
       expect(card.value).to eq(10)
