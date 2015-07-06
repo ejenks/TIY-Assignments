@@ -1,28 +1,18 @@
-# Todo V3
-____________
+# ThreeDoMVC
 
-* [ ] - Actions
-  * [ ] - Create a new Todo
-  * [ ] - Edit/Update a Todo
-  * [ ] - Toggle a todo
-  * [ ] - Delete a todo
-  * [ ] - Toggle all todos
-  * [ ] - Clear completed todos (shouldn't appear until one is toggled complete)
-  * [ ] - Get item to count to work
-  * [ ] - Get all/active/complete toggles to work
-
-* [ ] - Rails
-  * [ ] - Index page
-  * [ ] - Controller Method (Todos Controller)
-    * [ ] - Create
-    * [ ] - Update
-    * [ ] - Destroy
-  * [ ] - Form Partials
-  * [ ] - SomeMethod.js.erb files
-    * [ ] - Not sure how many I will need here
-
-* [ ] - JQuery
-  * [ ] - Toggle(boolean) for todo
-  * [ ] - Hover for Delete
-  * [ ] - Toggle all???? Not sure yet
-  * [ ] - Clear complete should delete all that are toggled
+* [ ] - Three Do MVC
+  * [ ] - Add an Item
+    * [ ] - Item should append to list
+  * [ ] - Delete an item
+    * [ ] - Item should remove from the list
+  * [ ] - Toggle an item complete
+    * [ ] - Toggle complete should change boolean to True
+  * [ ] - Toggle All complete
+    * [ ] - Should toggle all complete or incomplete
+  * [ ] - Clear Completed
+    * [ ] - Should destroy all completed items from database
+  * [ ] - All/Complete/Active
+    * [ ] - Should display specific categorical items
+  * [ ] - Item Count
+    * [ ] -Should display correct number of items
+    

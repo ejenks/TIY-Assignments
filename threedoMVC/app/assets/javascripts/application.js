@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+  $('#todo-list').on('click', '.toggle', function(){
+    $(this).parent().submit();
+  });
+  $('#toggle-all').click(function(){
+    $(this).parent().submit();
+  });
+  $('')
+});
