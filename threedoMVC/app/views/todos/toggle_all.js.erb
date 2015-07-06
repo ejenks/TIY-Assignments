@@ -1,0 +1,4 @@
+<% todos.each do |todo| %>
+  $('#<%= "todo_#{todo.id}" %>').find('.toggle').prop('checked', <%= todo.complete %>)
+  $('#toggle-all').prop('checked', <%= todo.complete %>)
+<% end %>
